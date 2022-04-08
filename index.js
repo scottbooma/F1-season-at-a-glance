@@ -8,7 +8,6 @@ fetch(scheduleURL)
     .then(response => response.json())
     .then(raceListObject => {
         const raceList = raceListObject.MRData.RaceTable.Races
-        console.log(raceList)
         raceList.forEach(race => {
             addRaceToCalendar(createRaceForCalendar(race))
         })
