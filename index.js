@@ -9,7 +9,9 @@ fetch(scheduleURL)
     .then(raceListObject => {
         const raceList = raceListObject.MRData.RaceTable.Races
         console.log(raceList)
-        createRaceCalendar(raceList)
+        raceList.forEach(race => {
+            addRaceToCalendar(createRaceForCalendar(race))
+        })
         addNextRace(createNextRace(findNextRace(raceList)))
     })
 
@@ -46,20 +48,23 @@ function addNextRace(nextRace) {
     nextRaceContainer.append(nextRace)
 }
 
-function createRaceCalendar(raceList) {
-    raceList.forEach(event => {
-        const race = document.createElement("div")
-        race.classList.add("race")
-        race.innerHTML = `
+function createRaceForCalendar(event) {
+    const race = document.createElement("div")
+    race.classList.add("race")
+    race.innerHTML = `
                         <h3>${event.raceName}</h3>
                         <date>${convertDate(event.date)}</date>
                         <p>${event.Circuit.circuitName}</p>`
-        calendar.append(race)
-        if (event.date < currentDate) {
-            race.classList.add("pastRace")
-        }
-    })
+    if (event.date < currentDate) {
+        race.classList.add("pastRace")
+    }
+    return race
 }
+
+function addRaceToCalendar(raceEvent) {
+    calendar.append(raceEvent)
+}
+
 
 function convertDateAndTimeToLocal(date, time) {
     formattedDate = new Date(`${date} ${time}`)
@@ -68,6 +73,5 @@ function convertDateAndTimeToLocal(date, time) {
 
 function convertDate(date) {
     formattedDate = new Date(`${date}T00:00:00`)
-    console.log(date)
     return formattedDate.toString().slice(3, 15)
 }
