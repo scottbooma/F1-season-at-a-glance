@@ -7,7 +7,6 @@ fetch(standingsURL)
     .then(response => response.json())
     .then(standingsObject => {
         const standingsList = standingsObject.MRData.StandingsTable.StandingsLists[0].DriverStandings
-        console.log(standingsList)
         standingsList.forEach(driverStanding => {
             addStandingListing(createStandingListing(driverStanding))
         }
@@ -17,9 +16,10 @@ fetch(standingsURL)
 function createStandingListing(driverStanding) {
     const driver = document.createElement("tr")
     driver.innerHTML = `
-                        <td>${driverStanding.position}</td>
-                        <td>${driverStanding.Driver.code}</td>
-                        <td>${driverStanding.points}</td>`
+        <td>${driverStanding.position}</td>
+        <td>${driverStanding.Driver.code}</td>
+        <td>${driverStanding.points}</td>
+    `
     return driver
 }
 
