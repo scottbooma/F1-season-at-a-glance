@@ -21,7 +21,29 @@ function findNextRace(raceList) {
 function createNextRace(race) {
     const nextRace = document.createElement("div")
     nextRace.classList.add("nextRace")
-    nextRace.innerHTML = `
+    if (Object.keys(race).includes("Sprint")) {
+        nextRace.innerHTML = `
+            <h2>${race.raceName}</h2>
+            <p>Round ${race.round}</p>
+            <p>${race.Circuit.circuitName}</p>
+            <date>${convertDateAndTimeToLocal(race.date, race.time)}</date>
+            <div class="weekend-schedule">
+                <div>FP1
+                    <date>${convertDateAndTimeToLocal(race.FirstPractice.date, race.FirstPractice.time)}</date>
+                </div>
+                <div>Qualifying
+                    <date>${convertDateAndTimeToLocal(race.Qualifying.date, race.Qualifying.time)}</date>
+                </div>
+                <div>FP2
+                    <date>${convertDateAndTimeToLocal(race.SecondPractice.date, race.SecondPractice.time)}</date>
+                </div>
+                <div>Sprint
+                    <date>${convertDateAndTimeToLocal(race.Sprint.date, race.Sprint.time)}</date>
+                </div>
+            </div>
+        `
+    } else {
+        nextRace.innerHTML = `
         <h2>${race.raceName}</h2>
         <p>Round ${race.round}</p>
         <p>${race.Circuit.circuitName}</p>
@@ -41,7 +63,23 @@ function createNextRace(race) {
             </div>
         </div>
     `
+    }
     return nextRace
+}
+
+function sprintOrFP3(race) {
+    const div = document.createElement("div")
+    if (Object.keys(race).includes("Sprint")) {
+        div.innerHTML = `
+            Sprint
+                <date>${convertDateAndTimeToLocal(race.Sprint.date, race.Sprint.time)}</date>
+        `
+    } else {
+        div.innerHTML = `
+            FP3
+                <date>${convertDateAndTimeToLocal(race.ThirdPractice.date, race.ThirdPractice.time)}</date>
+        `
+    }
 }
 
 function addNextRace(nextRace) {
