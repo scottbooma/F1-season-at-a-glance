@@ -1,4 +1,5 @@
 const scheduleURL = "https://ergast.com/api/f1/current.json"
+
 const calendar = document.querySelector(".calendar")
 const nextRaceContainer = document.querySelector(".nextRaceContainer")
 

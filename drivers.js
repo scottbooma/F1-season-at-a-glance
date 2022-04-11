@@ -1,17 +1,30 @@
 const standingsURL = "https://ergast.com/api/f1/current/driverStandings.json"
 const driverStatsBaseURL = "https://ergast.com/api/f1/current/drivers/"  // need to append ${driver}/(results for race)(qualifying for quali)(sprint for sprint).json
 
-
+const driverSelector = document.querySelector("#drivers")
 
 fetch(standingsURL)
     .then(response => response.json())
     .then(standingsObject => {
         const standingsList = standingsObject.MRData.StandingsTable.StandingsLists[0].DriverStandings
+        console.log(standingsList)
         standingsList.forEach(driverStanding => {
+            addDriverSelection(createDriverSelection(driverStanding))
             addStandingListing(createStandingListing(driverStanding))
         }
         )
     })
+
+function createDriverSelection(driverStanding) {
+    const driver = document.createElement("option")
+    driver.value = `${driverStanding.Driver.driverId}`
+    driver.textContent = `${driverStanding.Driver.givenName} ${driverStanding.Driver.familyName}`
+    return driver
+}
+
+function addDriverSelection(driver) {
+    driverSelector.append(driver)
+}
 
 function createStandingListing(driverStanding) {
     const driver = document.createElement("tr")
