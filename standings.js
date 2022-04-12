@@ -36,7 +36,6 @@ fetch(standingsURL)
     .then(response => response.json())
     .then(standingsObject => {
         const standingsList = standingsObject.MRData.StandingsTable.StandingsLists[0].DriverStandings
-        console.log(standingsList)
         standingsList.forEach(driverStanding => {
             addDriverSelection(createDriverSelection(driverStanding))
             addStandingListing(createStandingListing(driverStanding))
