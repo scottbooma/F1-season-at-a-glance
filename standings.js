@@ -1,4 +1,5 @@
-const standingsURL = "https://ergast.com/api/f1/current/driverStandings.json"
+const driverStandingsURL = "https://ergast.com/api/f1/current/driverStandings.json"
+const constructorStandingsURL = "https://ergast.com/api/f1/current/constructorstandings.json"
 const driverStatsBaseURL = "https://ergast.com/api/f1/current/drivers/"  // need to append ${driver}/(results for race)(qualifying for quali)(sprint for sprint).json
 
 const driverSelector = document.querySelector("#drivers")
@@ -32,13 +33,23 @@ form.addEventListener("change", event => {
 })
 
 
-fetch(standingsURL)
+fetch(driverStandingsURL)
     .then(response => response.json())
-    .then(standingsObject => {
-        const standingsList = standingsObject.MRData.StandingsTable.StandingsLists[0].DriverStandings
-        standingsList.forEach(driverStanding => {
+    .then(driverStandingsObject => {
+        const driverStandingsList = driverStandingsObject.MRData.StandingsTable.StandingsLists[0].DriverStandings
+        driverStandingsList.forEach(driverStanding => {
             addDriverSelection(createDriverSelection(driverStanding))
-            addStandingListing(createStandingListing(driverStanding))
+            addDriverStandingListing(createDriverStandingListing(driverStanding))
+        }
+        )
+    })
+
+fetch(constructorStandingsURL)
+    .then(response => response.json())
+    .then(constructorStandingsObject => {
+        const constructorStandingsList = constructorStandingsObject.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+        constructorStandingsList.forEach(constructorStanding => {
+            addConstructorStandingListing(createConstructorStandingListing(constructorStanding))
         }
         )
     })
@@ -131,7 +142,7 @@ function addDriverSelection(driver) {
     driverSelector.append(driver)
 }
 
-function createStandingListing(driverStanding) {
+function createDriverStandingListing(driverStanding) {
     const driver = document.createElement("tr")
     driver.innerHTML = `
         <td> ${driverStanding.position}</td>
@@ -142,7 +153,22 @@ function createStandingListing(driverStanding) {
     return driver
 }
 
-function addStandingListing(driver) {
-    document.querySelector(".standings-table-body").append(driver)
+function addDriverStandingListing(driver) {
+    document.querySelector(".driver-standings-table-body").append(driver)
+}
+
+function createConstructorStandingListing(constructorStanding) {
+    const constructor = document.createElement("tr")
+    constructor.innerHTML = `
+        <td> ${constructorStanding.position}</td>
+        <td><img src="images/constructors/${constructorStanding.Constructor.constructorId}.png" alt="${constructorStanding.Constructor.constructorId}" class="standings-logo"/></td>
+        <td>${constructorStanding.Constructor.name}</td>
+        <td>${constructorStanding.points}</td>
+    `
+    return constructor
+}
+
+function addConstructorStandingListing(constructor) {
+    document.querySelector(".constructor-standings-table-body").append(constructor)
 }
 
