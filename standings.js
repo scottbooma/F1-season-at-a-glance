@@ -11,7 +11,6 @@ form.addEventListener("change", event => {
     event.preventDefault()
     const driverStatsRequestArray = [
         `${driverStatsBaseURL}${event.target.value}/results.json`,
-        `${driverStatsBaseURL}${event.target.value}/qualifying.json`,
         `${driverStatsBaseURL}${event.target.value}/sprint.json`
     ]
     Promise.all(driverStatsRequestArray.map(url => {
@@ -20,7 +19,7 @@ form.addEventListener("change", event => {
     })).then(driverStatsResponseArray => {
         const driverInfo = driverStatsResponseArray[0].MRData.RaceTable.Races[0].Results[0]
         const raceResults = driverStatsResponseArray[0].MRData.RaceTable.Races
-        const sprintResults = driverStatsResponseArray[2].MRData.RaceTable.Races
+        const sprintResults = driverStatsResponseArray[1].MRData.RaceTable.Races
         getDriverImage(driverInfo)
         getDriverInfo(driverInfo)
         clearResultsTables()
