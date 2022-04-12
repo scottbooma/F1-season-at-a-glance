@@ -23,6 +23,7 @@ form.addEventListener("change", event => {
         const sprintResults = driverStatsResponseArray[2].MRData.RaceTable.Races
         getDriverImage(driverInfo)
         getDriverInfo(driverInfo)
+        clearResultsTables()
         raceResults.forEach(raceResult => {
             addRaceResults(getRaceResults(raceResult))
         })
@@ -129,6 +130,11 @@ function addRaceResults(element) {
 
 function addSprintResults(element) {
     document.querySelector(".sprint-table-body").append(element)
+}
+
+function clearResultsTables() {
+    document.querySelector(".race-table-body").innerHTML = ``
+    document.querySelector(".sprint-table-body").innerHTML = ``
 }
 
 function createDriverSelection(driverStanding) {
