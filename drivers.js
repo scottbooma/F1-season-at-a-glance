@@ -36,6 +36,7 @@ fetch(standingsURL)
     .then(response => response.json())
     .then(standingsObject => {
         const standingsList = standingsObject.MRData.StandingsTable.StandingsLists[0].DriverStandings
+        console.log(standingsList)
         standingsList.forEach(driverStanding => {
             addDriverSelection(createDriverSelection(driverStanding))
             addStandingListing(createStandingListing(driverStanding))
@@ -121,10 +122,10 @@ function addSprintResults(element) {
 }
 
 function createDriverSelection(driverStanding) {
-    const driver = document.createElement("option")
-    driver.value = `${driverStanding.Driver.driverId} `
-    driver.textContent = `${driverStanding.Driver.givenName} ${driverStanding.Driver.familyName} `
-    return driver
+    const driverSelection = document.createElement("option")
+    driverSelection.value = `${driverStanding.Driver.driverId} `
+    driverSelection.textContent = `${driverStanding.Driver.givenName} ${driverStanding.Driver.familyName} `
+    return driverSelection
 }
 
 function addDriverSelection(driver) {
@@ -135,6 +136,7 @@ function createStandingListing(driverStanding) {
     const driver = document.createElement("tr")
     driver.innerHTML = `
         <td> ${driverStanding.position}</td>
+        <td><img src="images/constructors/${driverStanding.Constructors[0].constructorId}.png" alt="${driverStanding.Constructors[0].constructorId}" class="standings-logo"/></td>
         <td>${driverStanding.Driver.code}</td>
         <td>${driverStanding.points}</td>
     `
