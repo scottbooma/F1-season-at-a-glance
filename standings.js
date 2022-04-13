@@ -30,6 +30,10 @@ form.addEventListener("change", event => {
             addSprintResults(getSprintResults(sprintResult))
         })
     })
+        .catch(error => {
+            console.error(error.message)
+            window.open("404.html", _self)
+        })
 })
 
 
@@ -42,6 +46,10 @@ fetch(driverStandingsURL)
             addDriverStandingListing(createDriverStandingListing(driverStanding))
         }
         )
+    })
+    .catch(error => {
+        console.error(error.message)
+        window.open("404.html", _self)
     })
 
 fetch(constructorStandingsURL)

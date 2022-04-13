@@ -14,6 +14,10 @@ fetch(scheduleURL)
         })
         addNextRace(createNextRace(findNextRace(raceList)))
     })
+    .catch(error => {
+        console.error(error.message)
+        window.open("404.html", _self)
+    })
 
 function findNextRace(raceList) {
     return raceList.find(event => event.date >= currentDate)
