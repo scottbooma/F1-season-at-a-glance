@@ -97,7 +97,7 @@ function getRaceResults(raceResult) {
 }
 
 function accountForRaceDNF(raceResult) {
-    if (raceResult.Results[0].status === "Finished") {
+    if (raceResult.Results[0].status === "Finished" || raceResult.Results[0].status.includes("Lap")) {
         return raceResult.Results[0].position
     } else {
         return "DNF"
