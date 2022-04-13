@@ -32,7 +32,7 @@ form.addEventListener("change", event => {
     })
         .catch(error => {
             console.error(error.message)
-            window.open("404.html", _self)
+            window.location.href = "404.html"
         })
 })
 
@@ -49,7 +49,7 @@ fetch(driverStandingsURL)
     })
     .catch(error => {
         console.error(error.message)
-        window.open("404.html", _self)
+        window.location.href = "404.html"
     })
 
 fetch(constructorStandingsURL)

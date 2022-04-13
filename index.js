@@ -16,7 +16,7 @@ fetch(scheduleURL)
     })
     .catch(error => {
         console.error(error.message)
-        window.open("404.html", _self)
+        window.location.href = "404.html"
     })
 
 function findNextRace(raceList) {
