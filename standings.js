@@ -6,6 +6,11 @@ const driverSelector = document.querySelector("#drivers")
 const form = document.querySelector("form")
 const driverInfoContainer = document.querySelector(".driver-info-container")
 
+document.addEventListener("DOMContentLoaded", event => {
+    document.querySelector(".index-link").classList.remove("selected-page")
+    document.querySelector(".standings-link").classList.add("selected-page")
+})
+
 
 form.addEventListener("change", event => {
     event.preventDefault()
@@ -87,7 +92,7 @@ function getDriverInfo(driverInfo) {
             </tr>
             <tr>
                 <td>Date of Birth</td>
-                <td>${driverInfo.Driver.dateOfBirth}</td>
+                <td>${convertDate(driverInfo.Driver.dateOfBirth)}</td>
             </tr>
         </table>
     `
@@ -185,3 +190,7 @@ function addConstructorStandingListing(constructor) {
     document.querySelector(".constructor-standings-table-body").append(constructor)
 }
 
+function convertDate(date) {
+    formattedDate = new Date(`${date}T00:00:00`)
+    return formattedDate.toString().slice(3, 15)
+}

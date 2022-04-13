@@ -1,3 +1,80 @@
+@font-face {
+    font-family: f1-reg;
+    src: url(fonts/Formula1-Regular.ttf);
+}
+
+@font-face {
+    font-family: f1-black;
+    src: url(fonts/Formula1-Black.ttf);
+}
+
+body {
+    font-family: f1-reg;
+    background-color: RGB(225, 6, 0);
+}
+
+main {
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+header, h2, thead {
+    font-family: f1-black;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: black;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 20% 0 20%;
+    font-size: 20px;
+}
+
+nav a {
+    padding: 10px;
+}
+
+.selected-page {
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: RGB(225, 6, 0);
+}
+
+
+.nextRaceContainer {
+    text-align: center;
+    padding-bottom: 24px;
+    padding-top: 12px;
+    display: flex;
+    justify-content: center;
+}
+
+.nextRace > * {
+    margin: 8px;
+    font-size: 16px;
+}
+
+.nextRace h2 {
+    font-size: 36px;
+}
+
+.weekend-schedule > * {
+    margin: 8px;
+}
+
 .hidden {
     display: none;
 }
@@ -6,10 +83,26 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 12px;
+    padding: 0 10px 20px 10px;
+}
+
+.race {
+    padding: 8px;
+    border-radius: 8px;
+    border-left: 2px solid RGB(225, 6, 0);
+    border-top: 2px solid RGB(225, 6, 0);
+}
+
+.race h3 {
+    font-weight: 700;
+}
+
+.race > date, p {
+    font-size: 12px;
 }
 
 .pastRace {
-    background-color: gray;
+    background-color: rgb(169, 169, 169);
 }
 
 .driver-image {

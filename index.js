@@ -5,6 +5,11 @@ const nextRaceContainer = document.querySelector(".nextRaceContainer")
 
 const currentDate = new Date().toISOString().slice(0, 10)
 
+document.addEventListener("DOMContentLoaded", event => {
+    document.querySelector(".standings-link").classList.remove("selected-page")
+    document.querySelector(".index-link").classList.add("selected-page")
+})
+
 fetch(scheduleURL)
     .then(response => response.json())
     .then(raceListObject => {
@@ -70,21 +75,6 @@ function createNextRace(race) {
     `
     }
     return nextRace
-}
-
-function sprintOrFP3(race) {
-    const div = document.createElement("div")
-    if (Object.keys(race).includes("Sprint")) {
-        div.innerHTML = `
-            Sprint
-                <date>${convertDateAndTimeToLocal(race.Sprint.date, race.Sprint.time)}</date>
-        `
-    } else {
-        div.innerHTML = `
-            FP3
-                <date>${convertDateAndTimeToLocal(race.ThirdPractice.date, race.ThirdPractice.time)}</date>
-        `
-    }
 }
 
 function addNextRace(nextRace) {
