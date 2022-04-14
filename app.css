@@ -226,3 +226,28 @@ tbody {
 .standings-logo {
     width: 20px;
 }
+
+.main-404 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-404 a {
+    color: RGB(225, 6, 0);
+}
+
+.main-404 a:hover {
+    color: black;
+}
+
+.main-404 h1 {
+    font-family: f1-black;
+    font-size: 58px;
+}
+
+.main-404 p {
+    font-size: 30px;
+}
