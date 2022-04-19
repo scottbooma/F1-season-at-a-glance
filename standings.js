@@ -5,13 +5,11 @@ const driverStatsBaseURL = "https://ergast.com/api/f1/current/drivers/"
 const driverSelector = document.querySelector("#drivers")
 const form = document.querySelector("form")
 
-document.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".index-link").classList.remove("selected-page")
-  document.querySelector(".standings-link").classList.add("selected-page")
-})
+document.querySelector(".index-link").classList.remove("selected-page")
+document.querySelector(".standings-link").classList.add("selected-page")
 
 
-form.addEventListener("change", event => {
+form.addEventListener("input", event => {
   event.preventDefault()
   const driverStatsRequestArray = [
     `${driverStatsBaseURL}${event.target.value}/results.json`,
@@ -68,13 +66,13 @@ fetch(constructorStandingsURL)
     )
   })
 
-function getDriverImage (driverInfo) {
+function getDriverImage(driverInfo) {
   const img = document.querySelector(".driver-image")
   img.src = `images/drivers/${driverInfo.Driver.driverId}.jpg`
   img.alt = `${driverInfo.Driver.givenName} ${driverInfo.Driver.familyName}`
 }
 
-function getDriverInfo (driverInfo) {
+function getDriverInfo(driverInfo) {
   const div = document.querySelector(".driver-info")
   div.innerHTML = `
         <h2>${driverInfo.Driver.givenName} ${driverInfo.Driver.familyName}</h2>
@@ -99,7 +97,7 @@ function getDriverInfo (driverInfo) {
     `
 }
 
-function getRaceResults (raceResult) {
+function getRaceResults(raceResult) {
   document.querySelector(".race-table").classList.remove("hidden")
   const tr = document.createElement("tr")
   tr.innerHTML = `
@@ -110,7 +108,7 @@ function getRaceResults (raceResult) {
   return tr
 }
 
-function accountForRaceDNF (raceResult) {
+function accountForRaceDNF(raceResult) {
   if (raceResult.Results[0].status === "Finished" ||
     raceResult.Results[0].status.includes("Lap")) {
     return raceResult.Results[0].position
@@ -119,7 +117,7 @@ function accountForRaceDNF (raceResult) {
   }
 }
 
-function getSprintResults (sprintResult) {
+function getSprintResults(sprintResult) {
   document.querySelector(".sprint-table").classList.remove("hidden")
   const tr = document.createElement("tr")
   tr.innerHTML = `
@@ -130,7 +128,7 @@ function getSprintResults (sprintResult) {
   return tr
 }
 
-function accountForSprintDNF (sprintResult) {
+function accountForSprintDNF(sprintResult) {
   if (sprintResult.SprintResults[0].status === "Finished") {
     return sprintResult.SprintResults[0].position
   } else {
@@ -138,31 +136,31 @@ function accountForSprintDNF (sprintResult) {
   }
 }
 
-function addRaceResults (element) {
+function addRaceResults(element) {
   document.querySelector(".race-table-body").append(element)
 }
 
-function addSprintResults (element) {
+function addSprintResults(element) {
   document.querySelector(".sprint-table-body").append(element)
 }
 
-function clearResultsTables () {
+function clearResultsTables() {
   document.querySelector(".race-table-body").innerHTML = ""
   document.querySelector(".sprint-table-body").innerHTML = ""
 }
 
-function createDriverSelection (driverStanding) {
+function createDriverSelection(driverStanding) {
   const driverSelection = document.createElement("option")
   driverSelection.value = `${driverStanding.Driver.driverId} `
   driverSelection.textContent = `${driverStanding.Driver.givenName} ${driverStanding.Driver.familyName} `
   return driverSelection
 }
 
-function addDriverSelection (driver) {
+function addDriverSelection(driver) {
   driverSelector.append(driver)
 }
 
-function createDriverStandingListing (driverStanding) {
+function createDriverStandingListing(driverStanding) {
   const driver = document.createElement("tr")
   driver.innerHTML = `
         <td> ${driverStanding.position}</td>
@@ -175,11 +173,11 @@ function createDriverStandingListing (driverStanding) {
   return driver
 }
 
-function addDriverStandingListing (driver) {
+function addDriverStandingListing(driver) {
   document.querySelector(".driver-standings-table-body").append(driver)
 }
 
-function createConstructorStandingListing (constructorStanding) {
+function createConstructorStandingListing(constructorStanding) {
   const constructor = document.createElement("tr")
   constructor.innerHTML = `
         <td> ${constructorStanding.position}</td>
@@ -192,12 +190,12 @@ function createConstructorStandingListing (constructorStanding) {
   return constructor
 }
 
-function addConstructorStandingListing (constructor) {
+function addConstructorStandingListing(constructor) {
   document.querySelector(".constructor-standings-table-body")
     .append(constructor)
 }
 
-function convertDate (date) {
+function convertDate(date) {
   const formattedDate = new Date(`${date}T00:00:00`)
   return formattedDate.toString().slice(3, 15)
 }

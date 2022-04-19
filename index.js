@@ -6,10 +6,8 @@ const nextRaceContainer = document.querySelector(".nextRaceContainer")
 const currentDate = new Date().toISOString()
     .slice(0, 10)
 
-document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector(".standings-link").classList.remove("selected-page")
-    document.querySelector(".index-link").classList.add("selected-page")
-})
+document.querySelector(".standings-link").classList.remove("selected-page")
+document.querySelector(".index-link").classList.add("selected-page")
 
 fetch(scheduleURL)
     .then(response => response.json())

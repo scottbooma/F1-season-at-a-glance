@@ -187,9 +187,9 @@ tbody {
 }
 
 .race-table, .sprint-table {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: auto;
+    margin-left: 4px;
+    margin-right: 4px;
 }
 
 .race-table th {
@@ -204,7 +204,6 @@ tbody {
 
 .race-table,
 .sprint-table td {
-    width: auto;
     font-size: 12px;
 }
 
@@ -272,6 +271,11 @@ tbody {
     .results-container {
         grid-column: 1 / span 1;
         grid-row: 3 / span 1;
+    }
+
+    .race-table, .sprint-table {
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .main-404 h1 {
