@@ -1,64 +1,19 @@
-https://scottbooma.github.io/F1-season-at-a-glance/
+# F1 Season at a Glance
 
-# Production Website
+Click [here](https://scottbooma.github.io/F1-season-at-a-glance/) to visit the website.
 
-## Features
+This simple webapp was designed to give the reader a brief snapshot of where we are in the current Formula 1 season.
 
-### Multiple pages
+The first page features the season's race calendar with past races "greyed" out. The upcoming race is featured at the top of the page with the weekend schedule listed out using local dates and times for each event of the weekend.
 
-Your website should feature multiple pages, linked together, each with meaningful content. They should be be appropriately visually designed.
+![calendar page](https://i2.paste.pics/74afaeada0def59b2fb9e7f4a38cfe6c.png)
 
-### API Integration
+The second page features the current standings for both drivers and constructors. It also has a drop down where the user can select an individual driver to learn more about how they are currently doing.
 
-Your website should integrate with at least one third-party API. You should transform the data to make the format suitable for your site. This data should be used to manipulate the DOM of the site. API errors should be handled.
+When a driver is selected an image of the driver, a brief summary about them, and their current results for the season are displayed. The results are in a tabular form showing their position and points value for each race. There is also a separate table for the Sprint race results that will populate after the first Sprint of the season (Emilia Romanga).
 
-### Form
+![standings page](https://i2.paste.pics/b5f24c10e80f5bf402d657a2ea645152.png)
 
-Your website should feature at least one form that collects user data. This data should be stored in the browser, and should have some integration with the data from your API. User data should be validated.
+This webapp is powered by the [Ergast](http://ergast.com/mrd/) F1 API.
 
-## Definition of Done
-
-Your site should have:
-
-* A custom favicon
-* A 404 page
-* A commit history demonstrating that work was consistently saved
-* Responsive styling
-* A descriptive README explaining what the site is for, showing at least one sample image of the site, and linking to the deployed site
-
-Additionally:
-
-* The site should pass the [WebAIM's WAVE test](https://wave.webaim.org/) with no errors or contrast errors
-* The HTML should pass the [W3C HTML Validator](https://validator.w3.org/)
-* The JavaScript should pass the [Standard](https://standardjs.com/) JS linter with no errors or warnings
-
-Finally:
-
-* The site should be deployed to a public URL using a cloud provider
-
-## Rubric
-
-### Attention to detail
-
-The site:
-
-* [ ] - Features multiple pages, linked together, with meaningful content
-* [ ] - Integrates with an API
-* [ ] - Has a form that collects user data
-* [ ] - Passes WAVE with no errors or contrast errors
-* [ ] - Passes the W3C Validator
-* [ ] - Passes linting with no errors or warnings
-* [ ] - The site functionality works
-* [ ] - Has a custom favicon
-* [ ] - Has a 404 page
-* [ ] - Has a reasonable commit history
-* [ ] - Is styled responsively
-* [ ] - Has a README with an explanation, at least one sample image, and a link
-* [ ] - Is deployed to a cloud provider
-
-### Code Quality
-
-* [ ] - No useless code
-* [ ] - Style is consistent
-* [ ] - User input is validated
-* [ ] - Errors are handled
+This project is strictly for educational/hobby purposes only and is in no way associated with the FIA, FOM, or any drivers or constructors shown on the site.
