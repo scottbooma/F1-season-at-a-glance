@@ -2,15 +2,15 @@
 
 Click [here](https://scottbooma.github.io/F1-season-at-a-glance/) to visit the website.
 
-This simple webapp was designed to give a reader a bried snapshot of where we are in the current Formula 1 season.
+This simple webapp was designed to give the reader a brief snapshot of where we are in the current Formula 1 season.
 
-The first page is a features the race calendar for the season with past races "greyed" out. The upcoming race is featured at the top of the page with the weekend schedule listed out with local dates and times given for each event of the weekend.
+The first page features the season's race calendar with past races "greyed" out. The upcoming race is featured at the top of the page with the weekend schedule listed out using local dates and times for each event of the weekend.
 
 ![calendar page](https://i2.paste.pics/74afaeada0def59b2fb9e7f4a38cfe6c.png)
 
-The second page features the current standings for both drivers and constructors. It also has a drop down where a user can select an individual driver to learn more about how they are doing this year.
+The second page features the current standings for both drivers and constructors. It also has a drop down where the user can select an individual driver to learn more about how they are currently doing.
 
-When a driver is selected an image of the driver, a brief summary about them, and their current results for the season. The results are in a tabular form showing their position and points value for each race. There is also a separate table for the Sprint race results that will populate after the first Sprint of the season (Emilia Romanga).
+When a driver is selected an image of the driver, a brief summary about them, and their current results for the season are displayed. The results are in a tabular form showing their position and points value for each race. There is also a separate table for the Sprint race results that will populate after the first Sprint of the season (Emilia Romanga).
 
 ![standings page](https://i2.paste.pics/b5f24c10e80f5bf402d657a2ea645152.png)
 
