@@ -18,7 +18,7 @@ fetch(scheduleURL)
         raceList.forEach(race => {
             addRaceToCalendar(createRaceForCalendar(race))
         })
-        addNextRace(createNextRace(findNextRace(raceist)))
+        addNextRace(createNextRace(findNextRace(raceList)))
     })
     .catch(error => {
         console.error(error.message)
