@@ -273,6 +273,14 @@ tbody {
         grid-column: 1 / span 1;
         grid-row: 3 / span 1;
     }
+
+    .main-404 h1 {
+        font-size: 36px;
+    }
+
+    .main-404 p {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -295,6 +303,10 @@ tbody {
 
     .driver-info-container {
         grid-template-rows: auto auto auto;
+    }
+
+    .main-404 p {
+        font-size: 20px;
     }
 }
 
