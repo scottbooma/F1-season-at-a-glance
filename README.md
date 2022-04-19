@@ -16,4 +16,4 @@ When a driver is selected an image of the driver, a brief summary about them, an
 
 This webapp is powered by the [Ergast](http://ergast.com/mrd/) F1 API.
 
-^This project is strictly for educational/hobby purposes only and is in no way associated with the FIA, FOM, or any drivers or constructors shown on the site.^
+This project is strictly for educational/hobby purposes only and is in no way associated with the FIA, FOM, or any drivers or constructors shown on the site.
